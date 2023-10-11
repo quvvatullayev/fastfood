@@ -4,7 +4,7 @@ from django.db import models
 
 class Category(models.Model):
     title = models.CharField(max_length=30)
-    img = models.ImageField(upload_to='../categoryimgs')
+    img = models.ImageField(upload_to='./categoryimgs')
     description = models.TextField()
 
     def __str__(self) -> str:
@@ -17,7 +17,7 @@ class Category(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
-    img = models.ImageField(upload_to='../productimgs')
+    img = models.ImageField(upload_to='./productimgs')
     price = models.PositiveIntegerField(default=1)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 

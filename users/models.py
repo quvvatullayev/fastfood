@@ -24,12 +24,13 @@ class Cart(models.Model):
         ordering = ['-id']
     
 class Order(models.Model):
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     loocation = models.CharField(max_length=225)
     time = models.DateTimeField()
 
     def __str__(self) -> str:
-        return self.cart.user.username
+        return self.user.username
     
     class Meta:
         ordering = ['-id']

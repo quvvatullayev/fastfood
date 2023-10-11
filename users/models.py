@@ -24,6 +24,14 @@ class Cart(models.Model):
         ordering = ['-id']
     
 class Order(models.Model):
-    pass
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    loocation = models.CharField(max_length=225)
+    time = models.DateTimeField()
+
+    def __str__(self) -> str:
+        return self.cart.user.username
+    
+    class Meta:
+        ordering = ['-id']
     
     

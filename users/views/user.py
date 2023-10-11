@@ -3,11 +3,11 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from ..serializers import UserModel, UserSerializer
 
-class Users(generics.ListCreateAPIView):
+class UsersView(generics.ListCreateAPIView):
     queryset = UserModel.objects.all()
     serializer_class = UserSerializer
 
 
-class User(generics.RetrieveUpdateDestroyAPIView):
+class UserView(generics.RetrieveUpdateDestroyAPIView):
     queryset = UserModel.objects.all()
     serializer_class = UserSerializer
